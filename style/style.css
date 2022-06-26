@@ -1,0 +1,186 @@
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: hsl(210, 46%, 95%);
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+/* Définition de la grid, 4 colonnes comprisent entre 255px et 1fr*/
+.container{
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding : 20px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(255px, 1fr));
+    grid-gap: 30px;
+    grid-auto-flow: dense;
+}
+/* Intégration des panels (items) */
+.container .items{
+    position: relative;
+    transform: scale(1);
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 30px 32px;
+    box-shadow: 5px 10px 10px 3px rgba(0,0,0,0.07);
+    transition: transform .1s linear;
+}
+/* Animation de survole */
+.container .items:hover{
+    transform: scale(1.05);
+}
+/*******************Placement des items sur la grid******************/
+.div1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background-color : hsl(263, 55%, 52%);
+    color: #F8FFFF;
+}
+.div2{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    background-color: hsl(217, 19%, 35%);
+    color: #F8FFFF;
+}
+.div3{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    background-color: hsl(0, 0%, 100%);
+    color: #575B65;
+}
+.div4{
+    grid-column-start:2;
+    grid-column-end: 4;
+    background-color: hsl(219, 29%, 14%);
+    color: #F8FFFF;
+}
+.div5{
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start:1 ;
+    grid-row-end: 3;
+    background-color: hsl(0, 0%, 100%);
+    color: #575B65;
+}
+/****************************************************************/
+/* Mise en place des éléments des items */
+.items .profile .profile-img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.items:nth-child(1) .profile .profile-img{
+    border : 2px solid #A17BD0;
+}
+.items:nth-child(4) .profile .profile-img{
+    border : 2px solid hsl(263, 55%, 52%);
+}
+.profile{
+    display: flex;
+    width: 500px;
+}
+.logo{
+    position: absolute;
+    width: 7em;
+    right: 80px;
+    top: 0;
+}
+.profile .username{
+    padding: 0 15px;
+    width: 100%;
+}
+.profile .username .name{
+    font-size: 0.9rem;
+    font-weight: 100;
+}
+.profile .username .verified{
+    font-size: 0.7rem;
+    opacity: 50%;
+    font-weight: 100;
+}
+.profile-img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.bold-txt,
+.small-txt{
+    margin-top: 21px;
+}
+.bold-txt p{
+    font-size: 1.7rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    opacity: 0.9;
+    z-index: 10000;
+}
+.small-txt p{
+    font-size: 1rem;
+    line-height: 1.2rem;
+    opacity: 50%;
+    font-weight: 500;
+}
+
+/*Reponsive pour les devices de moins de 1274px*/
+@media (max-width : 1274px){
+    .container{
+        height: auto;
+        width: 100%;
+        position: relative;
+        padding : 50px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(188px, 1fr));
+        grid-gap: 30px;
+    }
+    .div5{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start:3;
+        grid-row-end: 3;
+        background-color: hsl(0, 0%, 100%);
+        color: #575B65;
+    }
+}
+/*Reponsive pour les devices de moins de 671px*/
+@media (max-width : 671px){
+    .container{
+        height: auto;
+        width: 100%;
+        position: relative;
+        padding : 20px;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 30px;
+    }
+    .div5{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start:3;
+        grid-row-end: 3;
+        background-color: hsl(0, 0%, 100%);
+        color: #575B65;
+    }
+    .logo{
+        position: absolute;
+        width: 7em;
+        right: 40px;
+        top: 0;
+    }
+}
+
